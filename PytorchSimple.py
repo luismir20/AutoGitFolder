@@ -59,7 +59,7 @@ total = 0
 with torch.no_grad():
     for data, target in test_loader:
         output = model(data)
-        pred = output.argmax(dim=1, keepdim=True)  # Get the index of the max log-probability
+        pred = output.argmax(dim=1, keepdim=True)  
         correct += pred.eq(target.view_as(pred)).sum().item()
         total += len(data)
 print(f"Test Accuracy: {correct / total:.4f}")
